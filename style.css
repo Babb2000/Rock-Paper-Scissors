@@ -23,5 +23,12 @@ body{
     width: 200px;
     height: 300px;
     border: black 2px solid;
+    box-shadow: -30px 30px 20px;
+    color: rgba(0,0,0,0.3);
 
+}
+
+
+.cool{
+    background-color: pink;
 }
