@@ -51,58 +51,78 @@ function scissorsFunction()
 }
 
 
-do
-{
+
 function playRound(compAns, playerChoice){
     if(compAns === "Rock" &&  playerChoice === "Rock" || compAns === "Paper" && playerChoice === "Paper" || compAns === "Scissors" && playerChoice === "Scissors")
     {
-        document.getElementById('sec').innerHTML = "Tie Game";
+        document.getElementById('sec').innerHTML = "You and the Computer chose the same weapon...";
     }
     else if(compAns === "Rock" && playerChoice === "Scissors") 
     {
         compScore++;
-        document.getElementById('sec').innerHTML = "Rock beats Scissors, Computer Won!";
+        document.getElementById('sec').innerHTML = "Rock beats Scissors, the Computer won this one...";
         let container = document.getElementsByClassName('box2');
         container[0].innerHTML = compScore;
+        if(compScore === 5)
+        {
+          document.getElementById('sec').innerHTML = `The computer won, with a score of ${compScore} to ${playerScore}`;
+        }
     }
     else if(playerChoice === "Rock" && compAns === "Scissors")
     {
         playerScore++;
-        document.getElementById('sec').innerHTML = "Rock beats Scissors, You won!";
+        document.getElementById('sec').innerHTML = "Rock beats Scissors, you beat the computer!";
         let container = document.getElementsByClassName('box2');
         container[1].innerHTML = playerScore;
+        if(playerScore === 5)
+         {
+           document.getElementById('sec').innerHTML = `You won! With a score of ${playerScore} to ${compScore}`;
+         }
     }
     else if (compAns === "Paper" && playerChoice === "Rock") 
     {
         compScore++;
-        document.getElementById('sec').innerHTML = "Paper beats Rock, Computer won!";
+        document.getElementById('sec').innerHTML = "Paper beats Rock, the computer won this one...";
         let container = document.getElementsByClassName('box2');
         container[0].innerHTML = compScore;
+        if(compScore === 5)
+        {
+          document.getElementById('sec').innerHTML = `The computer won, with a score of ${compScore} to ${playerScore}`;
+        }
     }
     else if(playerChoice === "Paper" && compAns === "Rock")
     {
         playerScore++;
-        document.getElementById('sec').innerHTML = "Paper beats Rock, You won!";
+        document.getElementById('sec').innerHTML = "Paper beats Rock, you beat the computer!";
         let container = document.getElementsByClassName('box2');
         container[1].innerHTML = playerScore;
+        if(playerScore === 5)
+         {
+           document.getElementById('sec').innerHTML = `You won! With a score of ${playerScore} to ${compScore}`;
+         }
     }
     else if (compAns === "Scissors" && playerChoice === "Paper") //Test case for Scissors vs Rock
     {
         compScore++;
-        document.getElementById('sec').innerHTML = "Scissors beats Paper, Computer won";
+        document.getElementById('sec').innerHTML = "Scissors beats Paper, the computer is taking over...";
         let container = document.getElementsByClassName('box2');
         container[0].innerHTML = compScore;
+        if(compScore === 5)
+         {
+           document.getElementById('sec').innerHTML = `The computer won, with a score of ${compScore} to ${playerScore}`;
+         }
     }
     else if(playerChoice === "Scissors" && compAns === "Paper")
     {
         playerScore++;
-        document.getElementById('sec').innerHTML = "Scissors beats Paper, You won!";
+        document.getElementById('sec').innerHTML = "Scissors beats Paper, you beat the computer!";
         let container = document.getElementsByClassName('box2');
         container[1].innerHTML = playerScore;
+        if(playerScore === 5)
+        {
+          document.getElementById('sec').innerHTML = `You won! With a score of ${playerScore} to ${compScore}`;
+        }
     }
  }
-
-}while(compScore + playerScore < 11);
-
-  
  
+
