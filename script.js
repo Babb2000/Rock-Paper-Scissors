@@ -102,7 +102,7 @@ function playRound(compAns, playerChoice){
     }
  }
 
-}while(compScore + playerScore <= 5);
+}while(compScore + playerScore < 11);
 
   
  
