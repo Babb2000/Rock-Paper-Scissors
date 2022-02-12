@@ -1,87 +1,108 @@
-//Function for computer to choose item at random
 let compScore = 0;
 let playerScore = 0;
-
+let playerChoice;
+let optionR, optionP, optionS;
+ 
 function computerPlay()
 {
-    let items = ["Rock", "Paper", "Scissors"];
-    let computerChoice = items[Math.floor(Math.random() * items.length)]; //Function to step through the array and return an item at random
-    return computerChoice;
+   let items = ["Rock", "Paper", "Scissors"];
+   let computerChoice = items[Math.floor(Math.random() * items.length)]; //Function to step through the array and return an item at random
+   return computerChoice;
+}
+ 
+let compAns = computerPlay(); //Computers Choice
+
+let containChoice = document.getElementsByClassName('box');
+let rock, paper, scissors;
+
+for(let i = 0; i < containChoice.length; i++)
+{
+  rock = containChoice[0]; //Assign the first container to the variable rock
+  paper = containChoice[1];
+  scissors = containChoice[2];
 }
 
-let compAns = computerPlay();
-let playerChoice = prompt("Rock, Paper, or Scissors"); //Get the user choice for Rock Paper or Scissors
+rock.addEventListener("click", rockFunction);
+paper.addEventListener("click", paperFunction);
+scissors.addEventListener("click", scissorsFunction);
 
 
+function rockFunction()
+{
+   let choice = "Rock";
+   let compAns = computerPlay();
+   playRound(compAns, choice);
+   
+}
+
+function paperFunction()
+{
+    let choice = "Paper";
+    let compAns = computerPlay();
+    playRound(compAns, choice);
+    
+}
+
+function scissorsFunction()
+{
+    let choice = "Scissors";
+    let compAns = computerPlay();
+    playRound(compAns, choice);
+}
+
+
+do
+{
 function playRound(compAns, playerChoice){
-    if(compAns === "Rock" && playerChoice === "Rock" || compAns === "Paper" && playerChoice === "Paper" || compAns === "Scissors" && playerChoice === "Scissors")
+    if(compAns === "Rock" &&  playerChoice === "Rock" || compAns === "Paper" && playerChoice === "Paper" || compAns === "Scissors" && playerChoice === "Scissors")
     {
-        return ("Tie Game");
+        document.getElementById('sec').innerHTML = "Tie Game";
     }
-    else if(compAns === "Rock" && playerChoice === "Scissors") //Test case for Rock vs Scissors
+    else if(compAns === "Rock" && playerChoice === "Scissors") 
     {
         compScore++;
-        return ("Rock beats Scissors, Computer Won!");
+        document.getElementById('sec').innerHTML = "Rock beats Scissors, Computer Won!";
+        let container = document.getElementsByClassName('box2');
+        container[0].innerHTML = compScore;
     }
     else if(playerChoice === "Rock" && compAns === "Scissors")
     {
         playerScore++;
-        return ("Rock beats Scissors, You won!");
+        document.getElementById('sec').innerHTML = "Rock beats Scissors, You won!";
+        let container = document.getElementsByClassName('box2');
+        container[1].innerHTML = playerScore;
     }
-    else if (compAns === "Paper" && playerChoice === "Rock") //Test case for Paper vs Rock
+    else if (compAns === "Paper" && playerChoice === "Rock") 
     {
         compScore++;
-        return ("Paper beats Rock, Computer won!");
+        document.getElementById('sec').innerHTML = "Paper beats Rock, Computer won!";
+        let container = document.getElementsByClassName('box2');
+        container[0].innerHTML = compScore;
     }
     else if(playerChoice === "Paper" && compAns === "Rock")
     {
         playerScore++;
-        return ("Paper beats Rock, You won!");
+        document.getElementById('sec').innerHTML = "Paper beats Rock, You won!";
+        let container = document.getElementsByClassName('box2');
+        container[1].innerHTML = playerScore;
     }
     else if (compAns === "Scissors" && playerChoice === "Paper") //Test case for Scissors vs Rock
     {
         compScore++;
-        return ("Scissors beats Paper, Computer won");
+        document.getElementById('sec').innerHTML = "Scissors beats Paper, Computer won";
+        let container = document.getElementsByClassName('box2');
+        container[0].innerHTML = compScore;
     }
     else if(playerChoice === "Scissors" && compAns === "Paper")
     {
         playerScore++;
-        return ("Scissors beats Paper, You won!");
-    } 
-}
-
-
-   
-function game(compAns, playerChoice)
-{
-    playRound(compAns, playerChoice); // Round 1
-    
-    let compAns2 = computerPlay();  //Round 2
-    let playerChoice2 = prompt("Rock, Paper, or Scissors");
-    playRound(compAns2, playerChoice2);
-    
-    let compAns3 = computerPlay();  //Round 2
-    let playerChoice3 = prompt("Rock, Paper, or Scissors");
-    playRound(compAns3, playerChoice3);
-    
-    let compAns4 = computerPlay();  //Round 2
-    let playerChoice4 = prompt("Rock, Paper, or Scissors");
-    playRound(compAns4, playerChoice4);
-   
-    let compAns5 = computerPlay();  //Round 2
-    let playerChoice5 = prompt("Rock, Paper, or Scissors");
-    playRound(compAns5, playerChoice5);
-   
-    if(compScore > playerScore)
-    {
-        alert(`The computer beat you with a score of ${compScore} to ${playerScore}`);
-
+        document.getElementById('sec').innerHTML = "Scissors beats Paper, You won!";
+        let container = document.getElementsByClassName('box2');
+        container[1].innerHTML = playerScore;
     }
-    else
-    {
-        alert(`You beat the computer with a score of ${playerScore} to ${compScore}`);
-    }
-    
-}
+ }
 
-game(compAns, playerChoice);
+}while(compScore + playerScore <= 5);
+
+  
+ 

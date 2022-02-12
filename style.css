@@ -19,16 +19,55 @@ body{
 }
 
 .box{
-    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    
     width: 200px;
     height: 300px;
     border: black 2px solid;
-    box-shadow: -30px 30px 20px;
     color: rgba(0,0,0,0.3);
-
+    cursor: pointer;
 }
 
+.box2{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    width: 200px;
+    height: 300px;
+    border: black 2px solid;
+    color: rgba(0,0,0,0.3);
+}
+
+.box:hover{
+    width: 250px;
+    height: 350px; 
+    transition: 0.5s;
+    box-shadow: -30px 30px 20px;
+}
 
 .cool{
     background-color: pink;
+}
+
+p{
+text-size-adjust: large;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+#sec{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    width: 200px;
+    height: 300px;
+    text-size-adjust: x-large;
 }
